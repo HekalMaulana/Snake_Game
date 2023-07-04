@@ -6,23 +6,32 @@ UP_HEADING = 90
 LEFT_HEADING = 180
 RIGHT_HEADING = 0
 DOWN_HEADING = 270
+SHAPE = "square"
+COLOR = 'WHITE'
 
 
 class Snake:
-    def __init__(self, shape, color):
-        self.shape = shape
-        self.color = color
+    def __init__(self):
         self.segments = []
         self.make_snake()
         self.head = self.segments[0]
 
     def make_snake(self):
         for cor_position in START_POSITION:
-            new_segment = Turtle(shape=self.shape)
-            new_segment.color(self.color)
-            new_segment.penup()
-            new_segment.goto(cor_position)
-            self.segments.append(new_segment)
+            self.create_snake(cor_position)
+
+        self.segments[0].shape("triangle")
+        self.segments[0].color("pink")
+
+    def create_snake(self, cor_position):
+        new_segment = Turtle(shape=SHAPE)
+        new_segment.color(COLOR)
+        new_segment.penup()
+        new_segment.goto(cor_position)
+        self.segments.append(new_segment)
+
+    def extend(self):
+        self.create_snake(self.segments[-1].position())
 
     def move(self):
         for seg_num in range(len(self.segments) - 1, 0, -1):
