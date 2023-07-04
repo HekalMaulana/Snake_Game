@@ -12,6 +12,12 @@ screen.title("Welcome to my SNAKE GAME")
 
 snake = Snake(shape="square", color="white")
 
+screen.listen()
+screen.onkey(snake.up, "Up")
+screen.onkey(snake.down, "Down")
+screen.onkey(snake.left, "Left")
+screen.onkey(snake.right, "Right")
+
 is_game_on = True
 
 while is_game_on:
@@ -20,7 +26,9 @@ while is_game_on:
 
     snake.move()
 
-    if snake.segments[0].xcor() > 280:
+    if snake.head.xcor() > 280 or snake.head.xcor() < -280 or snake.head.ycor() > 280 or snake.head.ycor() < -280:
         is_game_on = False
+        screen.bye()
+        print("You hit the wall")
 
-screen.exitonclick()
+# screen.exitonclick()
