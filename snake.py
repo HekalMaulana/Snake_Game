@@ -21,7 +21,7 @@ class Snake:
             self.create_snake(cor_position)
 
         self.segments[0].shape("triangle")
-        self.segments[0].color("pink")
+        self.segments[0].color("red")
 
     def create_snake(self, cor_position):
         new_segment = Turtle(shape=SHAPE)
