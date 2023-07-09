@@ -15,7 +15,7 @@ class Score(Turtle):
         self.update_score()
 
     def update_score(self):
-        self.write(arg=f"Score: {self.score}", align= ALIGMENT, font= FONT)
+        self.write(arg=f"Score: {self.score}", align=ALIGMENT, font=FONT)
 
     def add_score(self):
         self.score += 1
