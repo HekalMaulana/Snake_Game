@@ -35,7 +35,6 @@ class Score(Turtle):
             self.content = int(file.read())
 
     def reset(self):
-        self.read_file()
         if self.score > self.high_score:
             self.high_score = self.score
             change_data_file(str(self.high_score))
